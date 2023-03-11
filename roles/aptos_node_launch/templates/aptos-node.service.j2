@@ -1,0 +1,18 @@
+[Unit]
+Description=aptos-node
+After=network-online.target
+
+[Service]
+User={{ ansible_user }}
+ExecStart=/usr/local/bin/aptos-node --config {{ user_dir }}/{{ folder }}/{{ aptos_role }}.yaml
+Restart=on-failure
+RestartSec=5
+CPUSchedulingPolicy=fifo
+CPUSchedulingPriority=20
+IOSchedulingClass=best-effort
+IOSchedulingPriority=0
+#LogNamespace=noisy
+
+
+[Install]
+WantedBy=multi-user.target

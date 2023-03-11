@@ -1,2 +1,3 @@
-# ansible-aptos
-A set of playbooks for managing aptos validators, vfns and pfns on bare metal
+# Ansible Playbook for Aptos Validator, Validator Full Node (VFN), and Public Full Nodes (PFN)
+
+<to do>

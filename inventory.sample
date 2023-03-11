@@ -1,0 +1,27 @@
+## Aptos Mainnet
+[aptos]
+vn-machine ansible_host=192.168.0.10 aptos_role=validator #Validator
+vfn-machine ansible_host=192.168.0.11 aptos_role=vfn #VFN
+pfn-machine ansible_host=192.168.0.12 aptos_role=pfn #PFN
+
+[aptos:vars]
+var_file="group_vars/mainnet-aptos.yml"
+
+## Aptos Testnet
+[testnet_aptos]
+vn-testnet-machine ansible_host=192.168.1.10 aptos_role=validator #Validator
+vfn-testnet-machine ansible_host=192.168.1.11 aptos_role=vfn #VFN
+pfn-testnet-machine ansible_host=192.168.1.12 aptos_role=pfn #PFN
+
+[testnet_aptos:vars]
+var_file="group_vars/testnet-aptos.yml"
+
+# All Vars
+[all:vars]
+## Basics
+ansible_user="<ansible-user>"
+user_dir="/home/<ansible-user>"
+path="/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/bin:/usr/local/go/bin:{{ user_dir }}/go/bin:{{ user_dir }}/.cargo/bin"
+# If using grafana dashboard integration
+grafana_url="http://<grafana-ip>:3000"
+grafana_api="<grafana-api-key>"
